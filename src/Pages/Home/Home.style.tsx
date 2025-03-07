@@ -12,3 +12,10 @@ export const ContainerList = styled.div`
   white-space: nowrap;
   padding: 10px;
 `;
+
+export const TitleList = styled.div`
+  padding: 10px;
+  color: #FFFCF9;
+  font-weight: 700;
+  font-size: 34px;
+`;

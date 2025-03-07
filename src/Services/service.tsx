@@ -33,3 +33,17 @@ export const fetchTopRatedMovies = async () => {
     return [];
   }
 };
+
+export const fetchUpcomingMovies = async () => {
+  try {
+    const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', optionsGet);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.results; 
+    } catch (error) {
+    console.error('Erro ao buscar filmes populares:', error);
+    return [];
+  }
+};
