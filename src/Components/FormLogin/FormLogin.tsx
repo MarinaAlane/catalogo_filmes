@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Input, FormWrapper, Container, WrapperRegister } from './FormLogin.styles';
 
 const FormLogin = () => {
@@ -33,7 +34,7 @@ const FormLogin = () => {
         <Button>Login</Button>
         <WrapperRegister>
           Não tem cadastro ?
-          <span>Cadastre-se</span>
+          <Link to="/cadastro">Cadastre-se</Link>
         </WrapperRegister>
       </FormWrapper>
     </Container>

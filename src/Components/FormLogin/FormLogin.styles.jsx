@@ -54,7 +54,7 @@ export const WrapperRegister =  styled.div`
   font-size: 16px;
   padding: 10px;
 
-  span {
+  link {
     color: #FF8C42;
     font-weight: 600;
     margin-left: 10px;
