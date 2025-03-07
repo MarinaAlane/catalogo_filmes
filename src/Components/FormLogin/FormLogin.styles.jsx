@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  background-color: #4CAF50;
+  background-color: #FF8C42;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -12,7 +12,7 @@ export const Button = styled.button`
   border-radius: 5px;
 
   &:hover {
-    background-color: #3e8e41;
+    background-color:rgb(109, 51, 15);
   }
 `;
 
@@ -29,12 +29,12 @@ export const Input = styled.input`
 `;
 
 export const FormWrapper = styled.div`
-  padding: 30px 20px;
-	box-shadow: 3px 3px 2px 0px #E2E2E2;
-  justify-content: center;
+  background: #E2E2E2;
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
   flex-direction: column;
-  width: 50%;
-  align-items: center;
+
 
   @media (max-width: 768px) {
     width: 90%;
@@ -46,4 +46,18 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  color: black
 `;
+
+export const WrapperRegister =  styled.div`
+  display: flex;
+  font-size: 16px;
+  padding: 10px;
+
+  span {
+    color: #FF8C42;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+`

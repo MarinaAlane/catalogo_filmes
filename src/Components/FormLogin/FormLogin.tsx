@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, FormWrapper, Container } from './FormLogin.styles';
-import MariflixIcon from '../../assets/mariflix.png';
+import { Button, Input, FormWrapper, Container, WrapperRegister } from './FormLogin.styles';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -8,14 +7,12 @@ const FormLogin = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Handle login logic here
     console.log('Email:', email);
     console.log('Password:', password);
   };
 
   return (
     <Container>
-      <img src={MariflixIcon} />
       <FormWrapper onSubmit={handleSubmit}>
           <Input
             type="email"
@@ -34,6 +31,10 @@ const FormLogin = () => {
             placeholder="*******"
           />
         <Button>Login</Button>
+        <WrapperRegister>
+          Não tem cadastro ?
+          <span>Cadastre-se</span>
+        </WrapperRegister>
       </FormWrapper>
     </Container>
   );

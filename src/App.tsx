@@ -1,10 +1,11 @@
 import FormLogin from './Components/FormLogin/FormLogin'
+import Login from './Pages/Login/LoginPage'
 
 function App() {
 
   return (
     <>
-      <FormLogin />
+      <Login />
     </>
   )
 }
