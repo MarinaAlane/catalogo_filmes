@@ -28,7 +28,7 @@ export const Input = styled.input`
   margin-bottom: 20px;
 `;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
   background: #E2E2E2;
   border-radius: 8px;
   padding: 30px;

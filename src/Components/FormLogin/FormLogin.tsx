@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Input, FormWrapper, Container, WrapperRegister } from './FormLogin.styles';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent) => {
+ const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    const userData = localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") as string) : null;
+
+    if (
+      userData &&
+      userData.email === email &&
+      userData.password === password
+    ) {
+      navigate("/");
+    } else {
+      alert("Email ou senha incorretos.");
+    }
   };
 
   return (

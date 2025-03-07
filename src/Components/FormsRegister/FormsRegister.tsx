@@ -1,25 +1,65 @@
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Input, FormWrapper, Container } from '../FormLogin/FormLogin.styles';
 
-export const InputField = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-`;
+const FormRegister = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
-export const SubmitButton = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
+  const handleSubmit = (event: React.FormEvent) => {
+    console.log('handleSubmit foi chamado!'); 
+    event.preventDefault();
+    console.log('Email:', email);
+    console.log('Password:', password);
+    console.log('Name:', name);
 
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
+      
+    localStorage.setItem('userData', JSON.stringify({
+      email: email,
+      password: password,
+      name: name,
+    }));
+
+    setOpenModal(true);
+  };
+
+  return (
+    <Container>
+      <FormWrapper onSubmit={handleSubmit}>
+          <h1>Cadastro</h1>
+          <p>Preencha os campos abaixo para criar sua conta</p>
+          <Link to="/login">Já tem cadastro ?</Link>
+        <Input
+            type="name"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            placeholder="Maria da Silva"
+          />
+          <Input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="maria@email.com"
+          />
+          <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="*******"
+          />
+        <Button type="submit">Salvar</Button>
+      </FormWrapper>
+    {openModal && <div> AAAAAAAAAAAAA </div>}
+    </Container>
+  );
+};
+
+export default FormRegister;

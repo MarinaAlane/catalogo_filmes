@@ -1,8 +1,12 @@
+import FormRegister from '../../Components/FormsRegister/FormsRegister';
+import { Container } from '../Login/LoginPage.styles';
+
+
 const Register = () => {
   return(
-    <div>
-      <h1>Register</h1>
-    </div>
+    <Container>
+      <FormRegister />
+    </Container>
   )
 };
 
