@@ -1,16 +1,23 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { ContainerWrapper, ContainerList, ImageStyled, ScrollButton, TitleList } from './MovieList.styles';
+import { IMovieList } from './MovieList.interfaces';
 
-const MovieList = ({ title, movies, onImageClick }) => {
+const MovieList = ({ title, movies }: IMovieList) => {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
 
-  const scrollContainer = (direction) => {
+  const scrollContainer = (direction: string) => {
     if (containerRef.current) {
       const scrollAmount = 300;
       containerRef.current.scrollLeft += direction === "left" ? -scrollAmount : scrollAmount;
     }
   };
 
+  const detailsMovie = (movies: IMovieList) =>{
+    navigate("/detalhes", { state: { movies } });
+  }
   return (
     <div>
       <TitleList>{title}</TitleList>
@@ -23,7 +30,7 @@ const MovieList = ({ title, movies, onImageClick }) => {
                 <ImageStyled
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
-                  onClick={() => onImageClick(movie)}
+                  onClick={() => detailsMovie(movie)}
                 />
               </div>
             ))

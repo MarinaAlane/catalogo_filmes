@@ -9,7 +9,6 @@ const Home = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const getPopularMovies = async () => {
@@ -62,10 +61,6 @@ const Home = () => {
     getUpcomingMovies();
   }, []);
 
-  const handleImageClick = (movie) => {
-    setSelectedMovie(movie);
-  };
-
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -74,13 +69,14 @@ const Home = () => {
   if (error) {
     return <p>Erro: {error}</p>;
   }
+;
 
   return (
     <>
       <Header />
-      <MovieList title="Populares" movies={popularMovies} onImageClick={handleImageClick} />
-      <MovieList title="As melhores avaliações" movies={topRatedMovies} onImageClick={handleImageClick} />
-      <MovieList title="Próximos lançamentos" movies={upcomingMovies} onImageClick={handleImageClick} />
+      <MovieList title="Populares" movies={popularMovies} />
+      <MovieList title="As melhores avaliações" movies={topRatedMovies} />
+      <MovieList title="Próximos lançamentos" movies={upcomingMovies} />
     </>
   );
 };

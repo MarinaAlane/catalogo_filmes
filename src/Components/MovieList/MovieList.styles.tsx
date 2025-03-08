@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { ScrollButtonProps } from "./MovieList.interfaces";
+
 export const ContainerWrapper = styled.div`
   position: relative;
   display: flex;
@@ -16,13 +18,13 @@ export const ContainerList = styled.div`
   -ms-overflow-style: none;
   cursor: grab;
   scroll-behavior: smooth;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
-export const ScrollButton = styled.button`
+export const ScrollButton = styled.button<ScrollButtonProps>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

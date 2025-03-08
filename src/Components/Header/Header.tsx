@@ -2,6 +2,9 @@ import { ImageStyled, Container, Title, TitleContainer, ImageContainer } from '.
 import menu from '../../assets/menu-principal.png';
 
 const Header = () => {
+    const userData = JSON.parse(localStorage.getItem("userData") || '{}');
+    console.log(userData)
+
   return(
     <Container>
       <ImageContainer>
@@ -9,6 +12,7 @@ const Header = () => {
       </ImageContainer>
       <TitleContainer>
         <Title>Movie App</Title>
+        Olá, ${userData?.name}
       </TitleContainer>
     </Container>
   )
