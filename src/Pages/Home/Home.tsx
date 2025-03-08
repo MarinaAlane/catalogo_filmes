@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { fetchPopularMovies, fetchTopRatedMovies, fetchUpcomingMovies } from '../../Services/service';
-import { ContainerList, ImageStyled, TitleList } from './Home.style';
-import Header from '../../Components/Header/Header';
+import { useEffect, useState } from "react";
+import { fetchPopularMovies, fetchTopRatedMovies, fetchUpcomingMovies } from "../../Services/service";
+import Header from "../../Components/Header/Header";
+import MovieList from "../../Components/MovieList/MovieList";
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -9,15 +9,15 @@ const Home = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     const getPopularMovies = async () => {
       setLoading(true);
       setError(null);
       try {
-        const popularMovies = await fetchPopularMovies();
-        setPopularMovies(popularMovies);
-        console.log(popularMovies)
+        const movies = await fetchPopularMovies();
+        setPopularMovies(movies);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -29,19 +29,18 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-  const getTopRatedMovies = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const topRatedMovies = await fetchTopRatedMovies();
-      setTopRatedMovies(topRatedMovies);
-      console.log(topRatedMovies)
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const getTopRatedMovies = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const movies = await fetchTopRatedMovies();
+        setTopRatedMovies(movies);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     getTopRatedMovies();
   }, []);
@@ -50,19 +49,23 @@ const Home = () => {
     const getUpcomingMovies = async () => {
       setLoading(true);
       setError(null);
-    try {
-      const upcomingMovies = await fetchUpcomingMovies();
-      setUpcomingMovies(upcomingMovies);
-      console.log(upcomingMovies)
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+      try {
+        const movies = await fetchUpcomingMovies();
+        setUpcomingMovies(movies);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     getUpcomingMovies();
   }, []);
+
+  const handleImageClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -74,43 +77,10 @@ const Home = () => {
 
   return (
     <>
-    <Header />
-    <TitleList>Populares</TitleList>
-    <ContainerList>
-      {popularMovies.length > 0 ? (
-        popularMovies.map((movie) => (
-          <div key={movie.id}>
-            <ImageStyled src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-          </div>
-        ))
-      ) : (
-        <p>Nenhum filme encontrado.</p>
-      )}
-    </ContainerList>
-    <TitleList> As melhores avaliações</TitleList>
-    <ContainerList>
-        {topRatedMovies.length > 0 ? (
-          topRatedMovies.map((movie) => (
-            <div key={movie.id}>
-              <ImageStyled src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-            </div>
-          ))
-        ) : (
-          <p>Nenhum filme encontrado.</p>
-        )}
-      </ContainerList>
-      <TitleList>Próximos lançamentos</TitleList>
-      <ContainerList>
-        {upcomingMovies.length > 0 ? (
-          upcomingMovies.map((movie) => (
-            <div key={movie.id}>
-              <ImageStyled src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-            </div>
-          ))
-        ) : (
-          <p>Nenhum filme encontrado.</p>
-        )}
-      </ContainerList>
+      <Header />
+      <MovieList title="Populares" movies={popularMovies} onImageClick={handleImageClick} />
+      <MovieList title="As melhores avaliações" movies={topRatedMovies} onImageClick={handleImageClick} />
+      <MovieList title="Próximos lançamentos" movies={upcomingMovies} onImageClick={handleImageClick} />
     </>
   );
 };
