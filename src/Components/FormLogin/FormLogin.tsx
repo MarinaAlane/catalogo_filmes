@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button, Input, FormWrapper, Container, WrapperRegister } from './FormLogin.styles';
+import { useNavigate } from 'react-router-dom';
+import { Button, Input, FormWrapper, Container, WrapperRegister, StyledLink } from './FormLogin.styles';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -47,7 +47,7 @@ const FormLogin = () => {
         <Button>Login</Button>
         <WrapperRegister>
           Não tem cadastro ?
-          <Link to="/cadastro">Cadastre-se</Link>
+          <StyledLink to="/cadastro">Cadastre-se</StyledLink>
         </WrapperRegister>
       </FormWrapper>
     </Container>

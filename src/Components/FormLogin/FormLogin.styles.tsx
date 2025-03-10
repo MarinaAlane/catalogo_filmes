@@ -1,4 +1,19 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import backgroundImage from '../../assets/background-tela-login.jpg';
+
+export const Text = styled.text `
+  background-color: transparent;
+  color: black;
+  margin-bottom: 10px;
+`;
+export const StyledLink = styled(Link)`
+  color: #FF503B;
+  background-color: transparent;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 5px;
+`;
 
 export const Button = styled.button`
   background-color: #FF8C42;
@@ -14,6 +29,14 @@ export const Button = styled.button`
   &:hover {
     background-color:rgb(109, 51, 15);
   }
+`;
+
+export const Title = styled.div`
+  font-size: 25px;
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
 `;
 
 export const Input = styled.input`
@@ -47,17 +70,14 @@ export const Container = styled.div`
   align-items: center;
   min-height: 100vh;
   color: black
+  background-image: url('../../assets/background-tela-login.jpg');
+  // Ajustar imagem de background
 `;
 
 export const WrapperRegister =  styled.div`
   display: flex;
   font-size: 16px;
   padding: 10px;
-
-  link {
-    color: #FF8C42;
-    font-weight: 600;
-    margin-left: 10px;
-    cursor: pointer;
-  }
+  background-color: transparent;
+  color: black;
 `

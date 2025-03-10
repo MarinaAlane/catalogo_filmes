@@ -28,9 +28,9 @@ export const MenuContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
   border-radius: 8px;
   background-color: #444146;
+  height: 100%;
 
   p {
   background-color: transparent;

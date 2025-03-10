@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Input, FormWrapper, Container } from '../FormLogin/FormLogin.styles';
-import { Modal } from './FormRegister.styles';
+import { Button, Input, FormWrapper, Container, Text, Title, StyledLink } from '../FormLogin/FormLogin.styles';
+import { IconStyled, Modal } from './FormRegister.styles';
+import okItem from '../../assets/ok-item.png';
 
 const FormRegister = () => {
   const [email, setEmail] = useState('');
@@ -29,9 +29,13 @@ const FormRegister = () => {
   return (
     <Container>
       <FormWrapper onSubmit={handleSubmit}>
-          <h1>Cadastro</h1>
-          <p>Preencha os campos abaixo para criar sua conta</p>
-          <Link to="/login">Já tem cadastro ?</Link>
+            <Title>
+              Cadastre-se
+            </Title>
+            <Text>
+              Preencha os campos abaixo para criar sua conta
+            </Text>
+          <StyledLink to="/login">Já tem cadastro ?</StyledLink>
         <Input
             type="name"
             id="name"
@@ -58,10 +62,12 @@ const FormRegister = () => {
           />
         <Button type="submit">Salvar</Button>
       </FormWrapper>
-    {openModal && <Modal> Cadastro feito com sucesso!
-      <p> Clique aqui e faça o login </p>
+    {openModal &&
+      <Modal>
+        <IconStyled src={okItem} alt="ok" />
+        Cadastro feito com sucesso!
+        <StyledLink to="/login"> Faça o login </StyledLink>
        </Modal> }
-    {/* Mandar para login */}
     </Container>
   );
 };
