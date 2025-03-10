@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Estilos Atualizados
 export const ImageStyled = styled.img`
   max-height: 30px;
   border-radius: 8px;
@@ -53,6 +52,13 @@ export const MenuContainer = styled.div`
       color:rgb(169, 169, 169);
     }
   }
+
+  @media (max-width: 768px) {
+    width: 60%;
+    height: 30vh;
+    top: 40px;
+    left: 10%;
+  }
 `;
 
 export const UserData = styled.div`
@@ -62,6 +68,12 @@ export const UserData = styled.div`
   border-radius: 5px;
   margin-left: auto;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    padding: 3px 5px;
+    font-size: 14px;
+    width: 30%;
+  }
 `;
 
 export const LoginButton = styled.button`
