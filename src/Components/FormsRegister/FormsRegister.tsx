@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Input, FormWrapper, Container } from '../FormLogin/FormLogin.styles';
+import { Modal } from './FormRegister.styles';
 
 const FormRegister = () => {
   const [email, setEmail] = useState('');
@@ -57,7 +58,9 @@ const FormRegister = () => {
           />
         <Button type="submit">Salvar</Button>
       </FormWrapper>
-    {openModal && <div> AAAAAAAAAAAAA </div>}
+    {openModal && <Modal> Cadastro feito com sucesso!
+      <p> Clique aqui e faça o login </p>
+       </Modal> }
     {/* Mandar para login */}
     </Container>
   );

@@ -25,13 +25,26 @@ export const Title = styled.h1`
 
 export const MenuContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: fixed;
-  background-color: white; 
-  padding: 10px;
-  border: 1px solid #ccc;
+  z-index: 1;
+  border-radius: 8px;
+  background-color: #444146;
+
+  p {
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+
+    &:hover {
+      color:rgb(167, 167, 167);
+      cursor: pointer;
+    }
+  }
+
+
 `;
 
 export const UserData = styled.div`

@@ -19,6 +19,11 @@ const Header = () => {
     navigate('/login');
   };
 
+  // delete item localStorage para fazer logout.
+  // const logout = () => {
+  //   userData ? userData.clear : ''
+  // }
+
   return (
     <Container>
       <ImageContainer>
@@ -34,7 +39,7 @@ const Header = () => {
         <MenuContainer>
           <p>Menu 1</p>
           <p>Menu 2</p>
-          <p>Menu 3</p>
+          {/* <p onClick={logout()}> Sair </p> */}
         </MenuContainer>
       )}
     </Container>
