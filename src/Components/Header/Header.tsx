@@ -23,6 +23,10 @@ const Header = () => {
     setMenuOpen(false);
   };
 
+  const navigateToFavorites = () => {
+    navigate('/favoritos');
+  };
+
   return (
     <Container>
       <ImageContainer>
@@ -36,8 +40,9 @@ const Header = () => {
       )}
       {menuOpen && (
         <MenuContainer menuOpen={menuOpen}>
-          <p>Menu 1</p>
-          {userData?.name && <p onClick={handleLogout}>Sair</p>}
+          <p onClick={navigateToFavorites}>Filmes favoritos</p>
+          {userData?.name ?
+            <p onClick={handleLogout}>Sair</p> : <p onClick={navigateToLogin}>Login</p>}
         </MenuContainer>
       )}
     </Container>

@@ -15,9 +15,10 @@ const MovieList = ({ title, movies }: IMovieList) => {
     }
   };
 
-  const detailsMovie = (movies: IMovieList) =>{
-    navigate("/detalhes", { state: { movies } });
-  }
+  const detailsMovie = (movie: any) => {
+    navigate(`/detalhes/${movie.id}`, { state: { movie } });
+  };
+
   return (
     <div>
       <TitleList>{title}</TitleList>
