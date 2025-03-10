@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+# Catálogo de filmes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nessa aplicação temos um catálogo de filmes, consumindo a API [The MovieDB](https://developer.themoviedb.org/docs/getting-started).
 
-Currently, two official plugins are available:
+Usado:
+React+Vite e estilizado com CSS,usando Styled Components, dados foram salvos e manipulados usando localStorage e queryParams.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+_______
 
-## Expanding the ESLint configuration
+### Aplicação
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Para iniciar a aplicação:
+*  Clone o repositório
+*  Abra o terminal na e vá até o repositório clonado
+*  Digite `npm run dev`
+*  Clique no link que irá aparecer e irá abrir a aplicação.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Páginas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  Página inicial onde temos 3 listas de filmes, nessa pásgina é possível:
+    - Ir para o login
+    - Deslogar
+    - Clicar em cada filme, indo para a página de detalhes
+    - Ir para a página de favoritos
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+  Página de detalhes:
+   - Cada filme tem sua página de detalhes com informações como popularidade, sinopse, poster, e um botão de favoritar. O filme que será favoritado irá para a lista de filmes favoritos.
+     
+  Página de cadastro:
+   - Se usuário não tiver login será redirecionado para a tela de cadastro. E, após redirecionado novamemente para o login
+
+ Página de login
+  - Onde usuário fará login
+
+ Página de favoritos
+ - Usuário poderá ver a lista de filmes que ele favoritou.
+
+
+
+    
