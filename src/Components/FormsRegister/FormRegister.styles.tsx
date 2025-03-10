@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Modal = styled.div`
   background-color: #69626D;
-  width: 30%;
+  width: 60%; 
   height: 50%;
   padding: 30px;
   color: white;
-  z-index: 2;
+  z-index:1;
   font-size: 30px;
   border-radius: 8px;
   display: flex;
@@ -26,11 +26,3 @@ export const IconStyled = styled.img`
   background-color: transparent;
 `;
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: black;
-  position: relative;
-`;

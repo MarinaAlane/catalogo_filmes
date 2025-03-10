@@ -22,7 +22,7 @@ export const MovieItem = styled.div`
 `;
 
 export const MovieImage = styled.img`
-  width: 100%;
+  width: 20%;
   border-radius: 8px;
 `;
 

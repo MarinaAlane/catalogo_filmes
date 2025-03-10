@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../../assets/background-tela-login.jpg';
 
-export const Text = styled.text `
+export const Text = styled.text`
   background-color: transparent;
   color: black;
   margin-bottom: 10px;
 `;
+
 export const StyledLink = styled(Link)`
   color: #FF503B;
   background-color: transparent;
@@ -27,7 +27,7 @@ export const Button = styled.button`
   border-radius: 5px;
 
   &:hover {
-    background-color:rgb(109, 51, 15);
+    background-color: rgb(109, 51, 15);
   }
 `;
 
@@ -40,14 +40,14 @@ export const Title = styled.div`
 `;
 
 export const Input = styled.input`
-	font-size: 18px;
-	padding: 5px 10px;
-	outline: none;
-	background: #FFFFFF;
-	color: #000000;
-	border: 1px solid #C4D1EB;
-	border-radius: 5px;
-	box-shadow: 3px 3px 2px 0px #E2E2E2;
+  font-size: 18px;
+  padding: 5px 10px;
+  outline: none;
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid #C4D1EB;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px 0px #E2E2E2;
   margin-bottom: 20px;
 `;
 
@@ -57,27 +57,21 @@ export const FormWrapper = styled.form`
   padding: 30px;
   display: flex;
   flex-direction: column;
-
-
-  @media (max-width: 768px) {
-    width: 90%;
-  }
+  width: 400px;
+  justify-content: center;
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  color: black
-  background-image: url('../../assets/background-tela-login.jpg');
-  // Ajustar imagem de background
+  position: absolute; 
 `;
 
-export const WrapperRegister =  styled.div`
+export const WrapperRegister = styled.div`
   display: flex;
   font-size: 16px;
   padding: 10px;
   background-color: transparent;
   color: black;
-`
+`;
