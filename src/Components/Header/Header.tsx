@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { ImageStyled, Container, Title, ImageContainer, MenuContainer, UserData, LoginButton } from './Header.styles';
 import menu from '../../assets/menu-principal.png';
+import { Container, ImageContainer, ImageStyled, LoginButton, MenuContainer, Title, UserData } from './Header.styles';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const userData = JSON.parse(localStorage.getItem("userData") || '{}');
-  console.log(userData);
+  const userData = JSON.parse(localStorage.getItem('userData') || '{}');
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
@@ -19,10 +18,10 @@ const Header = () => {
     navigate('/login');
   };
 
-  // delete item localStorage para fazer logout.
-  // const logout = () => {
-  //   userData ? userData.clear : ''
-  // }
+  const handleLogout = () => {
+    localStorage.removeItem('userData');
+    setMenuOpen(false);
+  };
 
   return (
     <Container>
@@ -33,13 +32,12 @@ const Header = () => {
       {userData?.name ? (
         <UserData>Olá, {userData.name}</UserData>
       ) : (
-        <LoginButton onClick={() => (navigateToLogin())}>Login</LoginButton>
+        <LoginButton onClick={navigateToLogin}>Login</LoginButton>
       )}
       {menuOpen && (
-        <MenuContainer>
+        <MenuContainer menuOpen={menuOpen}>
           <p>Menu 1</p>
-          <p>Menu 2</p>
-          {/* <p onClick={logout()}> Sair </p> */}
+          {userData?.name && <p onClick={handleLogout}>Sair</p>}
         </MenuContainer>
       )}
     </Container>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Estilos Atualizados
 export const ImageStyled = styled.img`
   max-height: 30px;
   border-radius: 8px;
@@ -11,6 +12,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  position: relative;
 `;
 
 export const ImageContainer = styled.div`
@@ -24,27 +26,33 @@ export const Title = styled.h1`
 `;
 
 export const MenuContainer = styled.div`
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 10%;
+  height: 20vh;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
+  align-items: flex-start;
   background-color: #444146;
-  height: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 10;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ menuOpen }) => (menuOpen ? 'translateX(0)' : 'translateX(-100%)')};
+  
 
   p {
-  background-color: transparent;
-  font-size: 24px;
-  font-weight: bold;
-  padding: 20px;
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 0;
+    cursor: pointer;
 
     &:hover {
-      color:rgb(167, 167, 167);
-      cursor: pointer;
+      color:rgb(169, 169, 169);
     }
   }
-
-
 `;
 
 export const UserData = styled.div`
@@ -57,7 +65,7 @@ export const UserData = styled.div`
 `;
 
 export const LoginButton = styled.button`
-  background-color: #FF503B
+  background-color: #FF503B;
   color: white;
   border: none;
   padding: 5px 10px;
